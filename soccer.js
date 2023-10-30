@@ -20,6 +20,22 @@ const getPointsFromResult = function getPointsFromResult(result) {
 // including wins, draws, and losses i.e. 'wwdlw'
 // Returns total number of points won
 
+//IFFE enabled
+(getTotalPoints = function (gameResults)
+{
+  let totalPoint = 0;
+  const gameResultsArray = gameResults.split('');
+
+  gameResultsArray.forEach(element => {
+    console.log(RESULT_VALUES[element])
+    console.log(element)
+
+    totalPoint += getPointsFromResult(element);
+  });
+
+  return totalPoint;
+})
+
 
 
 // Check getTotalPoints
@@ -30,6 +46,15 @@ console.log(getTotalPoints('wwdl')); // should equal 7
 // i.e. {name: 'Sounders', results: 'wwlwdd'}
 // Logs each entry to the console as "Team name: points"
 
+console.log(`------------------- Game Results -------------------`); // linebreak
+const orderTeams = (...teams) => {
+
+  teams.forEach(team => {
+    console.log(`${team.name}: ${getTotalPoints(team.results)}`)
+  });
+
+  return;
+}
 
 
 // Check orderTeams
